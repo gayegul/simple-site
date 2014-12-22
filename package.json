@@ -6,6 +6,8 @@
     "url": "https://github.com/mel-quark/simple-site"
   },
   "description": "Example Site for JS FII Workshop",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.10.6"
+  },
   "devDependencies": {}
 }
