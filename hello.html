@@ -1,0 +1,39 @@
+<html>
+<body>
+<!-- Hello Universe! -->
+<p id="ajax-text"></p>
+<button id="wisdom">Pearl of wisdom!</button>
+<button id="joke">Joke me up</button>
+<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script>
+
+//$.get("http://localhost:3000/inspiration", function (response) {
+// $("body").text(response);
+//});
+
+/*$('button').click(function() {
+	var url = "./inspiration";
+	if( $(this).attr("id") === "joke") {
+		url = "./joke";
+	}
+	$.get(url, function (response) {
+		$("#ajax-text").text(response);
+	});
+});*/
+
+$('#wisdom').click(function() {
+	$.get("./inspiration", function (response) {
+		$("#ajax-text").text(response);
+	});
+});
+
+$('#joke').click(function() {
+	$.get("./joke", function (response) {
+		$("#ajax-text").text(response.setup + " " + response.punchLine);
+	});
+});
+
+
+</script>
+</body>
+</html>

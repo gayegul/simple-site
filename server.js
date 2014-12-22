@@ -1,15 +1,15 @@
 var express = require("express"),
-
+	http = require("http"),
 	app = express();
 
-app.get("/", function(req, res) {
-	res.send("hello universe!");
-})
+app.get("/", function (req, res) {
+	res.sendfile('./hello.html');
+});
 
 var inspirationArray = ["to boldly go no one has gone before", "not all who wander are lost", "here is to the misfits"];
 console.log("server starting. available at http://localhost:3000");
 
-app.get("/inspiration", function(req, res) {
+app.get("/inspiration", function (req, res) {
 	var randomIndex = Math.floor(Math.random() * inspirationArray.length);
 	res.send(inspirationArray[randomIndex]);
 });
@@ -21,10 +21,10 @@ var jokes = [
 	  punchLine: "can I join you?" }
 ];
 
-
 app.get("/joke", function(req, res) {
 	var randomJoke = Math.floor(Math.random() * jokes.length);
 	res.send(jokes[randomJoke]);
 });
 
-app.listen(3000);
+console.log("server starting. available at http://localhost:3000");
+http.createServer(app).listen(process.env.PORT || 3000);
